@@ -25,7 +25,7 @@ class InstallCommand extends Command
         $this->info('lma:install command');
         $this->info('Install admin to module: ' . config("lma.module.name"));
         $comfirm = $this->ask('Please enter Y to continue, any key to quit');
-        if ($comfirm != "Y") {
+        if (strtolower($comfirm) != "y") {
             return false;
         }
         $this->moduleName = config("lma.module.name");

@@ -5,7 +5,9 @@
     "require": {
         "php": ">=7.4",
         "doctrine/dbal": ">=2.3.0",
-        "nwidart/laravel-modules": ">=6.0",
+        "nwidart/laravel-modules": "^9.0",
+        "laravel/jetstream": "^2.8",
+        "livewire/livewire": "^2.5",
         "mhmiton/laravel-modules-livewire": ">=1.5"
     },
     "license": "MIT",
