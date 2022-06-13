@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{isset($title)?$title:"admin"}}</title>
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ mix('assets/css/admin.css') }}">
     <!-- Scripts -->
-    <script src="{{ asset('js/admin.js') }}" defer></script>
+    <script src="{{ mix('assets/js/admin.js') }}" defer></script>
     @livewireStyles
 </head>
 <body class="w-full min-h-screen bg-gray-200 text-base max-h-screen" style="font-size: 12px">

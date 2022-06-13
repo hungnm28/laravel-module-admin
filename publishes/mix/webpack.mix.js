@@ -3,8 +3,8 @@ dotenvExpand(require('dotenv').config({path: '../../.env'/*, debug: true*/}));
 const mix = require('laravel-mix');
 require('laravel-mix-merge-manifest');
 const tailwindcss = require('tailwindcss');
-const assetPath = process.env.NODE_ENV == 'production' ?'dev': 'dev';
-
+//const assetPath = process.env.NODE_ENV == 'production' ?'dev': 'dev';
+const assetPath = "assets";
 mix.setPublicPath('../../public').mergeManifest();
 
 
