@@ -20,7 +20,14 @@ class MakeRouteCommand extends Command
 
 
         $this->info($this->description);
-        $this->folder = $this->argument('name');
+        $name = $this->argument('name');
+        $name = Str::studly($name);
+        $parent = $this->option("parent");
+        if($parent){
+            $this->folder = Str::studly($parent) . "/" . $name;
+        }else{
+            $this->folder = $name;
+        }
         $this->showRoute();
     }
 
