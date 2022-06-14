@@ -33,11 +33,13 @@ class MakeRouteCommand extends Command
                 'DumMyModule',
                 'DumMyNamespace'
                 ,'DumMyPermission'
+                ,'DumMyTag'
             ],
             [
                 $this->getFonderDot(),
                 $this->getNamespace()
                 , $this->getPermissionName()
+                ,'//** Add To ' . strtolower($this->argument("name")) . ' Routes **//'
             ],
             $stub);
 
@@ -51,6 +53,7 @@ class MakeRouteCommand extends Command
     {
         $flag = '//** Add New Routes **//';
         $parent = $this->option("parent");
+        $parent = strtolower($parent);
         if ($parent) {
             $flag = '//** Add To ' . $parent . ' Routes **//';
         }

@@ -20,7 +20,13 @@ class MakeCreateCommand extends Command
         $name = $this->argument('name');
         $name = Str::studly($name);
         $modelName = $this->option("model");
-        $this->folder = $name;
+        $parent = $this->option("parent");
+        if($parent){
+            $this->folder = Str::studly($parent) . "/" . $name;
+        }else{
+            $this->folder = $name;
+        }
+
         if (!$modelName) {
             $modelName = Str::singular($name);
             $modelName = Str::studly($modelName);

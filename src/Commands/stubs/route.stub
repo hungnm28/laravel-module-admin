@@ -3,4 +3,5 @@
         Route::get('/{record_id}', DumMyNamespace\Show::class)->name('.show')->can('DumMyPermission');
         Route::get('/create', DumMyNamespace\Create::class)->name('.create')->can('DumMyPermission.create');
         Route::get('/edit/{record_id}', DumMyNamespace\Edit::class)->name('.edit')->can('DumMyPermission');
+        DumMyTag
     });
