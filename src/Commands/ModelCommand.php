@@ -45,6 +45,10 @@ class ModelCommand extends Command
                     $dumCastClass["use App\Casts\StringCast"] = "use App\Casts\StringCast;";
                     $dumCasts .= "\"$f\" => StringCast::class,\r\n\t\t";
                     break;
+                case "email":
+                    $dumCastClass["use App\Casts\EmailCast"] = "use App\Casts\EmailCast;";
+                    $dumCasts .= "\"$f\" => EmailCast::class,\r\n\t\t";
+                    break;
                 case "textarea":
                     $dumCastClass["use App\Casts\HtmlCast"] = "use App\Casts\HtmlCast;";
                     $dumCasts .= "\"$f\" => HtmlCast::class,\r\n\t\t";
@@ -87,6 +91,11 @@ class ModelCommand extends Command
             $stub
         );
         $pathSave = app_path("Models/" . $this->argument("name") . ".php");
+        // Backup model
+        $pathBackup =  app_path("Models/backups/" . $this->argument("name") . date("_Y_m_d_H_i_s",time()) . ".backup");
+        $this->info("Backup old model to $pathBackup");
+        $this->ensureDirectoryExists($pathBackup);
+        File::put($pathBackup,file_get_contents($pathSave));
         return File::put($pathSave, $template);
 
     }
